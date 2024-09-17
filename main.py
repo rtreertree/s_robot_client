@@ -8,26 +8,34 @@ import requests
 url = 'http://rtreertree.com:3000/image'
 
 def send_image(image: bytes):
-    response = requests.post(url, files={'image': image})
+    response = requests.post(url, files={'image': image}, data={'name': 'image'})
     return response.text
 
 cam = cv.VideoCapture(0)
-
+sleep(2)
 last = dt.datetime.now()
-while True:
-    ret, frame = cam.read()
+_, frame = cam.read()
+imgBuffer = compress.compress_image(frame)
+image = imgBuffer.read()
+res = send_image(image)
 
-    if not ret:
-        continue
+# cam = cv.VideoCapture(0)
+
+# last = dt.datetime.now()
+# while True:
+#     ret, frame = cam.read()
+
+#     if not ret:
+#         continue
     
-    frame = cv.resize(frame, (640, 480))
-    if fd.isContainFace(frame) and (dt.datetime.now() - last).seconds > 5:
-        frame = fd.detectFace(frame)
-    else:
-        continue
+#     frame = cv.resize(frame, (640, 480))
+#     if fd.isContainFace(frame) and (dt.datetime.now() - last).seconds > 1 / 20:
+#         frame = fd.detectFace(frame)
+#     else:
+#         continue
 
-    imgBuffer = compress.compress_image(frame)
-    image = imgBuffer.read()
-    res = send_image(image)
-    last = dt.datetime.now()
-    sleep(1/20)
+#     imgBuffer = compress.compress_image(frame)
+#     image = imgBuffer.read()
+#     res = send_image(image)
+#     last = dt.datetime.now()
+#     sleep(1/20)
