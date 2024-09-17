@@ -1,17 +1,15 @@
 import RPi.GPIO as GPIO
+import time
 
 
+# ir sensor
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(19, GPIO.OUT)
-GPIO.setup(13, GPIO.OUT)
+GPIO.setup(2, GPIO.IN)
 
-GPIO.setup(26, GPIO.OUT)
-
-pwm = GPIO.PWM(26, 1000)
-
-pwm.start(0)
 
 while True:
-    GPIO.output(19, GPIO.LOW)
-    GPIO.output(13, GPIO.HIGH)
-    pwm.ChangeDutyCycle(100)
+    if GPIO.input(2):
+        print("Obstacle detected")
+    else:
+        print("No obstacle detected")
+    time.sleep(1)
