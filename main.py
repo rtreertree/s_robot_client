@@ -15,7 +15,7 @@ cam = cv.VideoCapture(0)
 sleep(2)
 last = dt.datetime.now()
 _, frame = cam.read()
-imgBuffer = compress.compress_image(frame)
+imgBuffer = compress.compress_image(frame, quality=70)
 image = imgBuffer.read()
 res = send_image(image)
 
