@@ -7,7 +7,7 @@ GPIO.setup(13, GPIO.OUT)
 
 GPIO.setup(26, GPIO.OUT)
 
-pwm = GPIO.PWM(26, 50)
+pwm = GPIO.PWM(26, 1000)
 
 pwm.start(0)
 
