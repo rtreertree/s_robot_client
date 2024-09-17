@@ -14,4 +14,4 @@ pwm.start(0)
 while True:
     GPIO.output(19, GPIO.HIGH)
     GPIO.output(13, GPIO.LOW)
-    pwm.ChangeDutyCycle(50)
+    pwm.ChangeDutyCycle(100)
