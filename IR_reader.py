@@ -9,11 +9,11 @@ GPIO.setup(IRs, GPIO.IN)
 
 currentSensor = [0, 0, 0, 0, 0]
 
-# while True:
-#     for i in range(5):
-#         currentSensor[i] = GPIO.input(IRs[i])
-#     print(currentSensor)
+while True:
+    for i in range(5):
+        currentSensor[i] = GPIO.input(IRs[i])
+    print(currentSensor)
 
-#     time.sleep(0.5)
+    time.sleep(0.5)
 
 
