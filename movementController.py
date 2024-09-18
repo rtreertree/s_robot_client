@@ -29,6 +29,8 @@ def get_error():
         return 3
     elif (sensor[4] == 1):
         return 4
+    else:
+        return 0
 
 
 axis = 0
