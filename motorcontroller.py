@@ -31,23 +31,3 @@ class Motor:
         GPIO.output(self.in2, GPIO.LOW)
         self.pwm.ChangeDutyCycle(0)
 
-
-# # motor
-# GPIO.setup(19, GPIO.OUT)
-# GPIO.setup(13, GPIO.OUT)
-# GPIO.setup(26, GPIO.OUT)
-
-# pwm = GPIO.PWM(26, 1000)
-# pwm.start(0)
-
-
-motorL = Motor(26, 19, 13)
-motorR = Motor(6,5, 12)
-
-motorR.forward(50)
-motorL.forward(50)
-
-time.sleep(2)
-
-motorR.stop()
-motorL.stop()
