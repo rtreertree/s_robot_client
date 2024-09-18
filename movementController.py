@@ -33,8 +33,6 @@ def get_error():
         return 3
     elif (sensor[4] == 1):
         return 4
-    elif sum(sensor) == 0:
-        return None
     else:
         return 0
 
@@ -43,6 +41,15 @@ lastError = 0
 while True:
     sensor = ir_reader.get_sensor()
     error = get_error()
+
+    if lastError == 4 and error == 0:
+        motorL.stop()
+        motorR.forward(100)
+        continue
+    elif lastError == -4 and error == 0:
+        motorR.stop()
+        motorL.forward(100)
+        continue
 
     if error == None:
         motorR.stop()
