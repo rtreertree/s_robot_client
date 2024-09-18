@@ -10,6 +10,8 @@ sensor = ir_reader.get_sensor()
 motorL = motorcontroller.Motor(26, 19, 13)
 motorR = motorcontroller.Motor(6, 5, 12)
 
+BASE = 50
+
 def get_error():
     if (sensor[0] == 1 and sensor[1] == 0):
         return -4
@@ -33,13 +35,16 @@ def get_error():
         return 0
 
 
-axis = 0
-
 while True:
     error = get_error()
 
-    axis = 0.5 * error
+    if error == 0:
+        motorL.forward(BASE)
+        motorR.forward(BASE)
+    elif error > 0:
+        motorL.forward(BASE + (error * 10))
+        motorR.forward(BASE - (error * 10))
 
     sensor = ir_reader.get_sensor()
-    print(sensor)
+    print(error)
     time.sleep(0.1)
