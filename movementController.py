@@ -47,7 +47,7 @@ while True:
         print("Reset")
         error = lastError
 
-    elif abs(error) == 4:
+    elif abs(error) == 4 or abs(error) == 3:
         motorL.forward(BASE + (error * 12))
         motorR.forward(BASE - (error * 12))
 
