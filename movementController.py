@@ -48,6 +48,6 @@ while True:
         motorR.forward(BASE + error * 12)
     elif error < 0:
         motorR.stop()
-        motorL.forward(BASE + error * 12)
+        motorL.forward(BASE - error * 12)
 
     lastError = error
