@@ -13,6 +13,8 @@ motorR = motorcontroller.Motor(6, 5, 12)
 BASE = 50
 
 def get_error():
+    if sum(sensor) == 0:
+        return None
     if (sensor[0] == 1 and sensor[1] == 0):
         return -4
     elif (sensor[0] == 1 and sensor[1] == 1):
@@ -32,7 +34,7 @@ def get_error():
     elif (sensor[4] == 1):
         return 4
     else:
-        return None
+        return 0
 
 lastError = 0
 
