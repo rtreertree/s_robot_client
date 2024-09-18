@@ -45,7 +45,9 @@ motorL = Motor(26, 19, 13)
 motorR = Motor(5, 20, 16)
 
 motorR.forward(50)
+motorL.forward(50)
 
 time.sleep(2)
 
 motorR.stop()
+motorL.stop()
