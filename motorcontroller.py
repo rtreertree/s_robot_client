@@ -21,11 +21,6 @@ class Motor:
         GPIO.output(self.in2, GPIO.LOW)
         self.pwm.ChangeDutyCycle(speed)
 
-    def backward(self, speed):
-        GPIO.output(self.in1, GPIO.LOW)
-        GPIO.output(self.in2, GPIO.HIGH)
-        self.pwm.ChangeDutyCycle(speed)
-
     def stop(self):
         GPIO.output(self.in1, GPIO.LOW)
         GPIO.output(self.in2, GPIO.LOW)
