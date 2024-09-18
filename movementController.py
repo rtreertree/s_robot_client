@@ -32,7 +32,7 @@ def get_error():
     elif (sensor[4] == 1):
         return 4
     else:
-        return 0
+        return None
 
 lastError = 0
 
@@ -40,7 +40,10 @@ while True:
     sensor = ir_reader.get_sensor()
     error = get_error()
 
-    if error == 0:
+    if error == None:
+        motorR.stop()
+        motorL.forward(BASE + error * 10)
+    elif error == 0:
         motorL.forward(BASE)
         motorR.forward(BASE)
     elif error == 4:
