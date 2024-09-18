@@ -45,10 +45,10 @@ while True:
     if error == 0:
         motorL.forward(BASE)
         motorR.forward(BASE)
-    if error > 0:
+    if error < 0:
         motorL.stop()
         motorR.forward(BASE + (error * 3))
-    if error < 0:
+    if error > 0:
         motorR.stop()
         motorL.forward(BASE - (error * 3))
 
