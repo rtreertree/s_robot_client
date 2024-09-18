@@ -41,13 +41,13 @@ while True:
     error = get_error()
 
     if lastError == 4 and error == 0:
-        motorL.stop()
-        motorR.forward(100)
+        motorR.stop()
+        motorL.forward(100)
         lastError = 4
         continue
     elif lastError == -4 and error == 0:
-        motorR.stop()
-        motorL.forward(100)
+        motorL.stop()
+        motorR.forward(100)
         lastError = -4
         continue
 
