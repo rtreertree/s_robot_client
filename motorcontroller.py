@@ -3,6 +3,7 @@ import time
 
 GPIO.setmode(GPIO.BCM)
 
+
 # create motor class
 class Motor:
     def __init__(self, en1, in1, in2):
@@ -30,8 +31,24 @@ class Motor:
         GPIO.output(self.in2, GPIO.LOW)
         self.pwm.ChangeDutyCycle(0)
 
+
+# # motor
+# GPIO.setup(19, GPIO.OUT)
+# GPIO.setup(13, GPIO.OUT)
+# GPIO.setup(26, GPIO.OUT)
+
+# pwm = GPIO.PWM(26, 1000)
+# pwm.start(0)
+
+
 motorL = Motor(26, 19, 13)
 
-motorL.forward(50)
-time.sleep(5)
-motorL.stop()
+while True:
+    motorL.forward(100)
+    time.sleep(2)
+    motorL.stop()
+    time.sleep(2)
+    motorL.backward(100)
+    time.sleep(2)
+    motorL.stop()
+    time.sleep(2)
