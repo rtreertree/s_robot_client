@@ -33,6 +33,8 @@ def get_error():
         return 3
     elif (sensor[4] == 1):
         return 4
+    elif sum(sensor) == 0:
+        return None
     else:
         return 0
 
