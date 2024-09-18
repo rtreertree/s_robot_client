@@ -49,12 +49,12 @@ while True:
         motorL.stop()
         motorR.forward(BASE + (error * 3))
         if error == -4:
-            time.sleep(0.1)
+            time.sleep(0.05)
     if error > 0:
         motorR.stop()
         motorL.forward(BASE + (error * 3))
         if error == 4:
-            time.sleep(0.1)
+            time.sleep(0.05)
 
     lastError = error
     # time.sleep(0.1)
