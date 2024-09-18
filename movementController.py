@@ -40,35 +40,6 @@ while True:
     sensor = ir_reader.get_sensor()
     error = get_error()
 
-    if lastError == 4 and error == 0:
-        motorR.stop()
-        motorL.forward(100)
-        lastError = 4
-        continue
-    elif lastError == -4 and error == 0:
-        motorL.stop()
-        motorR.forward(100)
-        lastError = -4
-        continue
-
-    if error == 0:
-        motorL.forward(BASE)
-        motorR.forward(BASE)
-    elif error == 4:
-        motorR.stop()
-        motorL.forward(BASE + error * 12)
-        # time.sleep(0.1)
-    elif error == -4:
-        motorL.stop()
-        motorR.forward(BASE + error * 12)
-        # time.sleep(0.1)
-    elif error < 0:
-        motorL.stop()
-        motorR.forward(BASE + error * 12)
-    elif error > 0:
-        motorR.stop()
-        motorL.forward(BASE + error * 12)
-
     lastError = error
     time.sleep(0.1)
     print(error)
