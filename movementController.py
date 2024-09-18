@@ -43,21 +43,11 @@ while True:
         motorL.forward(BASE)
         motorR.forward(BASE)
 
-    elif abs(error) == 4 and error == 0:
-        print("Reset")
-        error = lastError
-
-    elif abs(error) == 4 or abs(error) == 3:
-        motorL.forward(BASE + (error * 12))
-        motorR.forward(BASE - (error * 12))
-
     elif error > 0:
-        motorL.forward(BASE + (error * 12))
-        motorR.forward(BASE - (error * 12))
-
-    sensor = ir_reader.get_sensor()
-    # print(f"{BASE - (error * 12)}, {BASE + (error * 12)}, Error: {error}, ")
-    # time.sleep(0.1)
-
+        motorL.stop()
+        motorR.forward(BASE + error * 12)
+    elif error < 0:
+        motorR.stop()
+        motorL.forward(BASE + error * 12)
 
     lastError = error
