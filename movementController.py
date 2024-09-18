@@ -70,3 +70,5 @@ while True:
         motorL.forward(BASE + error * 12)
 
     lastError = error
+    time.sleep(0.1)
+    print(error)
