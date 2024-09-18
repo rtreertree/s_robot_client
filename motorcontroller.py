@@ -42,7 +42,7 @@ class Motor:
 
 
 motorL = Motor(26, 19, 13)
-motorR = Motor(6, 10, 5)
+motorR = Motor(6,5, 12)
 
 motorR.backward(50)
 motorL.backward(50)
