@@ -41,13 +41,13 @@ class Motor:
 # pwm.start(0)
 
 
-motorL = Motor(26, 19, 13)
+# motorL = Motor(26, 19, 13)
 motorR = Motor(26, 20, 16)
 
 motorR.forward(50)
-motorL.forward(50)
+# motorL.forward(50)
 
 time.sleep(2)
 
 motorR.stop()
-motorL.stop()
+# motorL.stop()
