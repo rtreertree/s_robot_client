@@ -42,7 +42,7 @@ while True:
 
     if error == None:
         motorR.stop()
-        motorL.forward(BASE + error * 10)
+        motorL.forward(BASE + 2 * 10)
         continue
     elif error == 0:
         motorL.forward(BASE)
