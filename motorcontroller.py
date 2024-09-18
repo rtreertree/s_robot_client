@@ -1,33 +1,37 @@
 import RPi.GPIO as GPIO
 import time
 
-IRs = [2, 3, 4, 17, 27]
-
-# ir sensor
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(IRs, GPIO.IN)
 
-currentSensor = [0, 0, 0, 0, 0]
+# create motor class
+class Motor:
+    def __init__(self, en1, in1, in2):
+        self.en1 = en1
+        self.in1 = in1
+        self.in2 = in2
 
-# while True:
-#     for i in range(5):
-#         currentSensor[i] = GPIO.input(IRs[i])
-#     print(currentSensor)
+        GPIO.setup([self.en1, self.in1, self.in2], GPIO.OUT)
 
-#     time.sleep(0.5)
+        self.pwm = GPIO.PWM(self.en1, 1000)
+        self.pwm.start(0)
 
+    def forward(self, speed):
+        GPIO.output(self.in1, GPIO.HIGH)
+        GPIO.output(self.in2, GPIO.LOW)
+        self.pwm.ChangeDutyCycle(speed)
 
-# motor
-GPIO.setup(19, GPIO.OUT)
-GPIO.setup(13, GPIO.OUT)
-GPIO.setup(26, GPIO.OUT)
+    def backward(self, speed):
+        GPIO.output(self.in1, GPIO.LOW)
+        GPIO.output(self.in2, GPIO.HIGH)
+        self.pwm.ChangeDutyCycle(speed)
 
-pwm = GPIO.PWM(26, 1000)
-pwm.start(0)
+    def stop(self):
+        GPIO.output(self.in1, GPIO.LOW)
+        GPIO.output(self.in2, GPIO.LOW)
+        self.pwm.ChangeDutyCycle(0)
 
-while True:
-    GPIO.output(19, GPIO.HIGH)
-    GPIO.output(13, GPIO.LOW)
+motorL = Motor(26, 19, 13)
 
-    pwm.ChangeDutyCycle(75)
-    time.sleep(1)
+motorL.forward(50)
+time.sleep(5)
+motorL.stop()
