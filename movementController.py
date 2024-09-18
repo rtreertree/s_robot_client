@@ -45,17 +45,15 @@ while True:
     if lastError == 4 and error == 0:
         motorL.stop()
         motorR.forward(100)
+        lastError = 4
         continue
     elif lastError == -4 and error == 0:
         motorR.stop()
         motorL.forward(100)
+        lastError = -4
         continue
 
-    if error == None:
-        motorR.stop()
-        motorL.forward(BASE + 2 * 10)
-        continue
-    elif error == 0:
+    if error == 0:
         motorL.forward(BASE)
         motorR.forward(BASE)
     elif error == 4:
