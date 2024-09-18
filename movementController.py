@@ -57,5 +57,5 @@ while True:
             time.sleep(0.1)
 
     lastError = error
-    time.sleep(0.1)
-    print(error)
+    # time.sleep(0.1)
+    # print(error)
