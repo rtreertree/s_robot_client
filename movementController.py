@@ -42,8 +42,15 @@ while True:
     if abs(lastError) == 4 and error == 0:
         error = lastError
 
-    motorR.forward(BASE - (error * 3))
-    motorL.forward(BASE + (error * 3))
+    if error == 0:
+        motorL.forward(BASE)
+        motorR.forward(BASE)
+    if error > 0:
+        motorL.stop()
+        motorR.forward(BASE + (error * 3))
+    if error < 0:
+        motorR.stop()
+        motorL.forward(BASE - (error * 3))
 
     lastError = error
     time.sleep(0.1)
