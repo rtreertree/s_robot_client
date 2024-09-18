@@ -43,6 +43,14 @@ while True:
     if error == 0:
         motorL.forward(BASE)
         motorR.forward(BASE)
+    elif error == 4:
+        motorR.stop()
+        motorL.forward(BASE + error * 12)
+        time.sleep(0.5)
+    elif error == -4:
+        motorL.stop()
+        motorR.forward(BASE + error * 12)
+        time.sleep(0.5)
     elif error < 0:
         motorL.stop()
         motorR.forward(BASE + error * 12)
