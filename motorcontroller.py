@@ -44,8 +44,8 @@ class Motor:
 motorL = Motor(26, 19, 13)
 motorR = Motor(6,5, 12)
 
-motorR.backward(50)
-motorL.backward(50)
+motorR.forward(50)
+motorL.forward(50)
 
 time.sleep(2)
 
