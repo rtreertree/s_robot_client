@@ -22,7 +22,7 @@ class Motor:
         self.pwm.ChangeDutyCycle(speed)
 
     def stop(self):
-        GPIO.output(self.in1, GPIO.LOW)
-        GPIO.output(self.in2, GPIO.LOW)
+        GPIO.output(self.in1, GPIO.HIGH)
+        GPIO.output(self.in2, GPIO.HIGH)
         self.pwm.ChangeDutyCycle(0)
 
