@@ -42,13 +42,10 @@ class Motor:
 
 
 motorL = Motor(26, 19, 13)
+motorR = Motor(6, 20, 16)
 
-while True:
-    motorL.forward(100)
-    time.sleep(2)
-    motorL.stop()
-    time.sleep(2)
-    motorL.backward(100)
-    time.sleep(2)
-    motorL.stop()
-    time.sleep(2)
+motorR.forward(50)
+
+time.sleep(2)
+
+motorR.stop()
