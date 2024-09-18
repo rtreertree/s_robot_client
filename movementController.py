@@ -41,7 +41,7 @@ while True:
     if error == 0:
         motorL.forward(BASE)
         motorR.forward(BASE)
-        
+
     elif abs(error) == 4:
         motorL.forward(BASE - (error * 12))
         motorR.forward(BASE + (error * 12))
@@ -51,5 +51,5 @@ while True:
         motorR.forward(BASE - (error * 10))
 
     sensor = ir_reader.get_sensor()
-    print(error)
+    print(motorR.pwm)
     time.sleep(0.1)
