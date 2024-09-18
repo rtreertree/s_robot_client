@@ -47,8 +47,8 @@ while True:
         error = lastError
 
     elif abs(error) == 4:
-        motorL.forward(BASE - (error * 12))
-        motorR.forward(BASE + (error * 12))
+        motorL.forward(BASE + (error * 12))
+        motorR.forward(BASE - (error * 12))
 
     elif error > 0:
         motorL.forward(BASE + (error * 10))
