@@ -37,12 +37,12 @@ def get_error():
 lastError = 0
 
 while True:
+    sensor = ir_reader.get_sensor()
     error = get_error()
 
     if error == 0:
         motorL.forward(BASE)
         motorR.forward(BASE)
-
     elif error > 0:
         motorL.stop()
         motorR.forward(BASE + error * 12)
