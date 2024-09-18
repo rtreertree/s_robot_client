@@ -56,7 +56,7 @@ while True:
         motorR.forward(BASE - (error * 10))
 
     sensor = ir_reader.get_sensor()
-    print(f"{BASE - (error * 12)}, {BASE + (error * 12)}, Error: {error}")
+    print(f"{BASE - (error * 12)}, {BASE + (error * 12)}, Error: {error}, ")
     time.sleep(0.1)
 
 

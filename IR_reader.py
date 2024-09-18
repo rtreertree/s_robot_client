@@ -15,3 +15,10 @@ class IRSensor:
             self.currentSensor[i] = GPIO.input(self.IRs[i])
         return self.currentSensor
 
+if __name__ == '__main__':
+    ir_reader = IRSensor(IRs)
+    sensor = ir_reader.get_sensor()
+    while True:
+        print(sensor)
+        sensor = ir_reader.get_sensor()
+        time.sleep(0.1)
