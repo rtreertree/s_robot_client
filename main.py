@@ -26,7 +26,7 @@ while True:
     else:
         continue
 
-    imgBuffer = compress.compress_image(frame)
+    imgBuffer = compress.compress_image(frame, quality=60)
     image = imgBuffer.read()
     res = send_image(image)
     last = dt.datetime.now()
